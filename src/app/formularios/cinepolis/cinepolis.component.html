@@ -1,0 +1,38 @@
+<div>
+    <h1>Cinepolis</h1>
+  
+    <form [formGroup]="formulario">
+        <p></p>
+
+      <div>
+        <label for="nombre">Nombre:</label>
+        <input formControlName="nombre" type="text">
+      </div>
+
+      <div>
+        <label for="numCompradores">Cantidad de compradores:</label>
+        <input formControlName="numCompradores" type="number">
+      </div>
+  
+      <div>
+        <label for="numBoletos">Cantidad de boletos total:</label>
+        <input formControlName="numBoletos" type="number">
+      </div>
+
+      <p></p>
+
+      <div>
+        <label for="tarjetaCineco">¿Tienes tarjeta cineco?</label>
+        <input formControlName="tarjetaCineco" type="checkbox">
+      </div>
+
+      <p></p>
+
+      <button (click)="calcularPago()" type="submit">Calcular Pago</button>
+
+      <p></p>
+      
+      <p>Hola {{ formulario.get('nombre')?.value }}</p>
+      <p>Pagarás: {{ valorAPagar | currency }} pesos.</p>
+    </form>
+  </div>
