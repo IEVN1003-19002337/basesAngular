@@ -1,0 +1,76 @@
+<form [formGroup]="formularioRes" (ngSubmit)="registro()">
+    <label for="color1">Primera Banda</label>
+    <select formControlName="color1">
+      <option value="negro">Negro</option>
+      <option value="marron">Marrón</option>
+      <option value="naranja">Naranja</option>
+      <option value="amarillo">Amarillo</option>
+      <option value="verde">Verde</option>
+      <option value="azul">Azul</option>
+      <option value="violeta">Violeta</option>
+      <option value="gris">Gris</option>
+      <option value="blanco">Blanco</option>
+    </select>
+  
+    <label for="color2">Segunda Banda</label>
+      <select formControlName="color2">
+        <option value="negro">Negro</option>
+        <option value="marron">Marrón</option>
+        <option value="naranja">Naranja</option>
+        <option value="amarillo">Amarillo</option>
+        <option value="verde">Verde</option>
+        <option value="azul">Azul</option>
+        <option value="violeta">Violeta</option>
+        <option value="gris">Gris</option>
+        <option value="blanco">Blanco</option>
+      </select>
+
+      <label for="color3">Tercera Banda</label>
+      <select formControlName="color3">
+        <option value="negro">Negro</option>
+        <option value="marron">Marrón</option>
+        <option value="naranja">Naranja</option>
+        <option value="amarillo">Amarillo</option>
+        <option value="verde">Verde</option>
+        <option value="azul">Azul</option>
+        <option value="violeta">Violeta</option>
+        <option value="gris">Gris</option>
+        <option value="blanco">Blanco</option>
+      </select>
+    
+    <p></p>
+    <div>
+      <label for="tolerancia">Tolerancia</label>
+      <input type="radio" formControlName="tolerancia" value="oro"> Oro 5%
+      <input type="radio" formControlName="tolerancia" value="plata"> Plata 10%
+    </div>
+    <p></p>
+    <button type="submit">Registrar</button>
+  </form>
+  
+  <p></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Color1</th>
+        <th>Color2</th>
+        <th>Color3</th>
+        <th>Tolerancia</th>
+        <th>Valor</th>
+        <th>Valor máximo</th>
+        <th>Valor mínimo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="resultado.valor">
+        <td [ngStyle]="{'background-color': colorHex[resultado.color1]}">{{ resultado.color1 }}</td>
+        <td [ngStyle]="{'background-color': colorHex[resultado.color2]}">{{ resultado.color2 }}</td>
+        <td [ngStyle]="{'background-color': colorHex[resultado.color3]}">{{ resultado.color3 }}</td>
+        <td [ngStyle]="{'background-color': resultado.tolerancia === 'oro' ? '#FFD700' : '#C0C0C0'}">{{ resultado.tolerancia }}</td>
+        <td>{{ resultado.valor }} Ω</td>
+        <td>{{ resultado.valorMaximo }} Ω</td>
+        <td>{{ resultado.valorMinimo }} Ω</td>
+      </tr>
+    </tbody>
+  </table>
+  
